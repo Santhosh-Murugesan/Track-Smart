@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+// Load environment variables immediately on module import
+dotenv.config();
+
 import fs from "fs";
 import path from "path";
 import { initializeApp } from "firebase/app";

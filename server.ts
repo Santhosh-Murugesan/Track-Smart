@@ -1,13 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { dbHelper, Expense, User } from "./server/db.js";
-
-// Make sure to load environment variables
-import dotenv from "dotenv";
-dotenv.config();
 
 const app = express();
 const PORT = 3000;

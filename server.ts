@@ -3,7 +3,6 @@ dotenv.config();
 
 import express from "express";
 import path from "path";
-import { createServer as createViteServer } from "vite";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { dbHelper, Expense, User } from "./server/db.js";
@@ -461,6 +460,7 @@ app.get("/api/expenses/export", authMiddleware, async (req: AuthenticatedRequest
 // ---------------- VITE / FRONTEND INTEGRATION ----------------
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",

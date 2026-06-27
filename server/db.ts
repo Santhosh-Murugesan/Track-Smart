@@ -48,6 +48,15 @@ try {
   console.error("Failed to read firebase-applet-config.json", err);
 }
 
+// Fallback to process.env variables if file-based keys are missing or undefined
+dbConfig.projectId = dbConfig.projectId || process.env.FIREBASE_PROJECT_ID;
+dbConfig.appId = dbConfig.appId || process.env.FIREBASE_APP_ID;
+dbConfig.apiKey = dbConfig.apiKey || process.env.FIREBASE_API_KEY;
+dbConfig.authDomain = dbConfig.authDomain || process.env.FIREBASE_AUTH_DOMAIN;
+dbConfig.firestoreDatabaseId = dbConfig.firestoreDatabaseId || process.env.FIREBASE_FIRESTORE_DATABASE_ID;
+dbConfig.storageBucket = dbConfig.storageBucket || process.env.FIREBASE_STORAGE_BUCKET;
+dbConfig.messagingSenderId = dbConfig.messagingSenderId || process.env.FIREBASE_MESSAGING_SENDER_ID;
+
 // Initialize Firebase JS Client SDK
 const firebaseConfig = {
   apiKey: dbConfig.apiKey,

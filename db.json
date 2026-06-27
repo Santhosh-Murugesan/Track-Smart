@@ -1,0 +1,327 @@
+{
+  "users": [
+    {
+      "name": "Santhosh Murugesan",
+      "email": "sandy0leymar@gmail.com",
+      "passwordHash": "$2b$10$wNMfgTD7PZXgb0YLb7/iUu9YHOCNkxBLdomtM6gvPiq5nUvfQk6Y6",
+      "id": "usr_y1crtnz8y",
+      "createdAt": "2026-06-27T06:06:24.589Z"
+    },
+    {
+      "name": "Teju",
+      "email": "ms9613550@gmail.com",
+      "passwordHash": "$2b$10$IAWJbbA5eDRX/UW7whzUfueA2ZMJt7hn7fkTY9VLcZGZtJ6/tRF0a",
+      "id": "usr_itdpz4pee",
+      "createdAt": "2026-06-27T06:14:40.490Z"
+    },
+    {
+      "name": "Demo Explorer",
+      "email": "demo@example.com",
+      "passwordHash": "$2b$10$Dka2ruu.VhUCocJxPzw0rOJA6gmSsd2DJj6nMN/JCCZdOEqeHaOM2",
+      "id": "usr_demo123",
+      "createdAt": "2026-06-27T06:15:00.000Z"
+    }
+  ],
+  "expenses": [
+    {
+      "amount": 250,
+      "category": "Food",
+      "description": "Had dinner in manis Biriyani",
+      "date": "2026-06-19",
+      "id": "exp_gavh2gkou",
+      "userId": "usr_y1crtnz8y",
+      "createdAt": "2026-06-27T06:07:50.771Z",
+      "updatedAt": "2026-06-27T06:07:50.771Z"
+    },
+    {
+      "amount": 70,
+      "category": "Travel",
+      "description": "Bus travel to JP Morgon to BPL",
+      "date": "2026-06-27",
+      "id": "exp_1xbwwoajs",
+      "userId": "usr_y1crtnz8y",
+      "createdAt": "2026-06-27T06:10:14.415Z",
+      "updatedAt": "2026-06-27T06:10:43.996Z"
+    },
+    {
+      "amount": 1800,
+      "category": "Food",
+      "description": "Weekly grocery shopping & fresh vegetables",
+      "date": "2026-06-25",
+      "id": "exp_teju_1",
+      "userId": "usr_itdpz4pee",
+      "createdAt": "2026-06-27T06:15:10.000Z",
+      "updatedAt": "2026-06-27T06:15:10.000Z"
+    },
+    {
+      "amount": 600,
+      "category": "Travel",
+      "description": "Cab ride back home",
+      "date": "2026-06-26",
+      "id": "exp_teju_2",
+      "userId": "usr_itdpz4pee",
+      "createdAt": "2026-06-27T06:15:20.000Z",
+      "updatedAt": "2026-06-27T06:15:20.000Z"
+    },
+    {
+      "amount": 3500,
+      "category": "Utilities",
+      "description": "Electricity & high-speed broadband monthly bills",
+      "date": "2026-06-27",
+      "id": "exp_demo_u1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:16:00.000Z",
+      "updatedAt": "2026-06-27T06:16:00.000Z"
+    },
+    {
+      "amount": 1250,
+      "category": "Food",
+      "description": "Premium dinner buffet with core team",
+      "date": "2026-06-27",
+      "id": "exp_demo_f1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:16:10.000Z",
+      "updatedAt": "2026-06-27T06:16:10.000Z"
+    },
+    {
+      "amount": 450,
+      "category": "Transport",
+      "description": "Premium cab ride to city center conference",
+      "date": "2026-06-26",
+      "id": "exp_demo_t1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:16:20.000Z",
+      "updatedAt": "2026-06-27T06:16:20.000Z"
+    },
+    {
+      "amount": 650,
+      "category": "Entertainment",
+      "description": "Netflix 4K HDR monthly family plan",
+      "date": "2026-06-26",
+      "id": "exp_demo_e1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:16:30.000Z",
+      "updatedAt": "2026-06-27T06:16:30.000Z"
+    },
+    {
+      "amount": 8900,
+      "category": "Shopping",
+      "description": "Ergonomic high-back office posture chair",
+      "date": "2026-06-25",
+      "id": "exp_demo_s1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:16:40.000Z",
+      "updatedAt": "2026-06-27T06:16:40.000Z"
+    },
+    {
+      "amount": 1500,
+      "category": "Healthcare",
+      "description": "General wellness checkup and multivitamin pack",
+      "date": "2026-06-24",
+      "id": "exp_demo_h1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:16:50.000Z",
+      "updatedAt": "2026-06-27T06:16:50.000Z"
+    },
+    {
+      "amount": 320,
+      "category": "Food",
+      "description": "Artisan cafe breakfast and espresso",
+      "date": "2026-06-20",
+      "id": "exp_demo_f2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:17:00.000Z",
+      "updatedAt": "2026-06-27T06:17:00.000Z"
+    },
+    {
+      "amount": 5200,
+      "category": "Travel",
+      "description": "Express flight ticket for weekend seminar",
+      "date": "2026-06-15",
+      "id": "exp_demo_tr1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:17:10.000Z",
+      "updatedAt": "2026-06-27T06:17:10.000Z"
+    },
+    {
+      "amount": 2499,
+      "category": "Education",
+      "description": "Full-stack cloud architecture online curriculum",
+      "date": "2026-06-10",
+      "id": "exp_demo_ed1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:17:20.000Z",
+      "updatedAt": "2026-06-27T06:17:20.000Z"
+    },
+    {
+      "amount": 4200,
+      "category": "Work",
+      "description": "Team project milestone lunch sponsorship",
+      "date": "2026-06-05",
+      "id": "exp_demo_w1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:17:30.000Z",
+      "updatedAt": "2026-06-27T06:17:30.000Z"
+    },
+    {
+      "amount": 18000,
+      "category": "Housing",
+      "description": "Co-living studio apartment monthly rent",
+      "date": "2026-06-01",
+      "id": "exp_demo_ho1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:17:40.000Z",
+      "updatedAt": "2026-06-27T06:17:40.000Z"
+    },
+    {
+      "amount": 4800,
+      "category": "Shopping",
+      "description": "Vibrant summer clothing, sneakers, & shades",
+      "date": "2026-05-28",
+      "id": "exp_demo_s2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:17:50.000Z",
+      "updatedAt": "2026-06-27T06:17:50.000Z"
+    },
+    {
+      "amount": 6500,
+      "category": "Travel",
+      "description": "Weekend nature resort log cabin booking",
+      "date": "2026-05-15",
+      "id": "exp_demo_tr2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:18:00.000Z",
+      "updatedAt": "2026-06-27T06:18:00.000Z"
+    },
+    {
+      "amount": 2500,
+      "category": "Others",
+      "description": "Gifting package for team mate's anniversary",
+      "date": "2026-05-10",
+      "id": "exp_demo_o1",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:18:10.000Z",
+      "updatedAt": "2026-06-27T06:18:10.000Z"
+    },
+    {
+      "amount": 18000,
+      "category": "Housing",
+      "description": "Co-living studio apartment monthly rent",
+      "date": "2026-05-01",
+      "id": "exp_demo_ho2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:18:20.000Z",
+      "updatedAt": "2026-06-27T06:18:20.000Z"
+    },
+    {
+      "amount": 5500,
+      "category": "Healthcare",
+      "description": "Complete eye screening & custom anti-glare lenses",
+      "date": "2026-04-25",
+      "id": "exp_demo_h2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:18:30.000Z",
+      "updatedAt": "2026-06-27T06:18:30.000Z"
+    },
+    {
+      "amount": 3000,
+      "category": "Entertainment",
+      "description": "Live jazz concert entry passes",
+      "date": "2026-04-12",
+      "id": "exp_demo_e2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:18:40.000Z",
+      "updatedAt": "2026-06-27T06:18:40.000Z"
+    },
+    {
+      "amount": 18000,
+      "category": "Housing",
+      "description": "Co-living studio apartment monthly rent",
+      "date": "2026-04-01",
+      "id": "exp_demo_ho3",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:18:50.000Z",
+      "updatedAt": "2026-06-27T06:18:50.000Z"
+    },
+    {
+      "amount": 4200,
+      "category": "Transport",
+      "description": "Comprehensive car wash, detailing, and wheel alignment",
+      "date": "2026-03-20",
+      "id": "exp_demo_t2",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:19:00.000Z",
+      "updatedAt": "2026-06-27T06:19:00.000Z"
+    },
+    {
+      "amount": 18000,
+      "category": "Housing",
+      "description": "Co-living studio apartment monthly rent",
+      "date": "2026-03-01",
+      "id": "exp_demo_ho4",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:19:10.000Z",
+      "updatedAt": "2026-06-27T06:19:10.000Z"
+    },
+    {
+      "amount": 7500,
+      "category": "Shopping",
+      "description": "Premium thermal jackets and waterproof winter boots",
+      "date": "2026-01-10",
+      "id": "exp_demo_s3",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:19:20.000Z",
+      "updatedAt": "2026-06-27T06:19:20.000Z"
+    },
+    {
+      "amount": 18000,
+      "category": "Housing",
+      "description": "Co-living studio apartment monthly rent",
+      "date": "2026-01-01",
+      "id": "exp_demo_ho5",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:19:30.000Z",
+      "updatedAt": "2026-06-27T06:19:30.000Z"
+    },
+    {
+      "amount": 6800,
+      "category": "Entertainment",
+      "description": "Gourmet Christmas eve family dinner reservation",
+      "date": "2025-12-25",
+      "id": "exp_demo_e3",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:19:40.000Z",
+      "updatedAt": "2026-06-27T06:19:40.000Z"
+    },
+    {
+      "amount": 12000,
+      "category": "Shopping",
+      "description": "Festive holiday presents, electronics, & apparel for family",
+      "date": "2025-12-20",
+      "id": "exp_demo_s4",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:19:50.000Z",
+      "updatedAt": "2026-06-27T06:19:50.000Z"
+    },
+    {
+      "amount": 1850,
+      "category": "Travel",
+      "description": "Interstate express train tickets booking",
+      "date": "2025-11-15",
+      "id": "exp_demo_tr3",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:20:00.000Z",
+      "updatedAt": "2026-06-27T06:20:00.000Z"
+    },
+    {
+      "amount": 2200,
+      "category": "Healthcare",
+      "description": "Preventive dental prophylaxis, cleaning, & scaling",
+      "date": "2025-09-08",
+      "id": "exp_demo_h3",
+      "userId": "usr_demo123",
+      "createdAt": "2026-06-27T06:20:10.000Z",
+      "updatedAt": "2026-06-27T06:20:10.000Z"
+    }
+  ]
+}

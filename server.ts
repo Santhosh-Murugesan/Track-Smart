@@ -68,10 +68,10 @@ const adminMiddleware = (req: AuthenticatedRequest, res: express.Response, next:
 // ---------------- API ROUTES ----------------
 
 // GET /api/admin/users - Admin: fetch all users with stats
-app.get("/api/admin/users", authMiddleware, adminMiddleware, (req: AuthenticatedRequest, res) => {
+app.get("/api/admin/users", authMiddleware, adminMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
-    const users = dbHelper.getUsers();
-    const allExpenses = dbHelper.getAllExpenses();
+    const users = await dbHelper.getUsers();
+    const allExpenses = await dbHelper.getAllExpenses();
 
     const userStats = users.map(user => {
       const userExpenses = allExpenses.filter(e => e.userId === user.id);
@@ -96,7 +96,7 @@ app.get("/api/admin/users", authMiddleware, adminMiddleware, (req: Authenticated
 });
 
 // DELETE /api/admin/users/:id - Admin: delete user and their expenses
-app.delete("/api/admin/users/:id", authMiddleware, adminMiddleware, (req: AuthenticatedRequest, res) => {
+app.delete("/api/admin/users/:id", authMiddleware, adminMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
     const { id } = req.params;
 
@@ -104,7 +104,7 @@ app.delete("/api/admin/users/:id", authMiddleware, adminMiddleware, (req: Authen
       return jsonResponse(res, "error", {}, "You cannot delete your own admin account", 400);
     }
 
-    const isDeleted = dbHelper.deleteUser(id);
+    const isDeleted = await dbHelper.deleteUser(id);
     if (!isDeleted) {
       return jsonResponse(res, "error", {}, "User not found", 404);
     }
@@ -117,7 +117,7 @@ app.delete("/api/admin/users/:id", authMiddleware, adminMiddleware, (req: Authen
 });
 
 // POST /auth/register
-app.post("/api/auth/register", (req, res) => {
+app.post("/api/auth/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -129,13 +129,13 @@ app.post("/api/auth/register", (req, res) => {
       return jsonResponse(res, "error", {}, "Password must be at least 6 characters long", 400);
     }
 
-    const existingUser = dbHelper.findUserByEmail(email);
+    const existingUser = await dbHelper.findUserByEmail(email);
     if (existingUser) {
       return jsonResponse(res, "error", {}, "An account with this email already exists", 400);
     }
 
     const passwordHash = bcrypt.hashSync(password, 10);
-    const newUser = dbHelper.addUser({
+    const newUser = await dbHelper.addUser({
       name,
       email,
       passwordHash
@@ -158,7 +158,7 @@ app.post("/api/auth/register", (req, res) => {
 });
 
 // POST /auth/login
-app.post("/api/auth/login", (req, res) => {
+app.post("/api/auth/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -166,7 +166,7 @@ app.post("/api/auth/login", (req, res) => {
       return jsonResponse(res, "error", {}, "Email and password are required", 400);
     }
 
-    const user = dbHelper.findUserByEmail(email);
+    const user = await dbHelper.findUserByEmail(email);
     if (!user) {
       return jsonResponse(res, "error", {}, "Invalid email or password", 401);
     }
@@ -198,9 +198,9 @@ app.post("/api/auth/logout", authMiddleware, (req, res) => {
 });
 
 // GET /api/auth/me (Get profile of logged-in user)
-app.get("/api/auth/me", authMiddleware, (req: AuthenticatedRequest, res) => {
+app.get("/api/auth/me", authMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
-    const user = dbHelper.findUserById(req.userId!);
+    const user = await dbHelper.findUserById(req.userId!);
     if (!user) {
       return jsonResponse(res, "error", {}, "User not found", 404);
     }
@@ -222,7 +222,7 @@ const ALLOWED_CATEGORIES = [
 ];
 
 // POST /expenses - Create expense
-app.post("/api/expenses", authMiddleware, (req: AuthenticatedRequest, res) => {
+app.post("/api/expenses", authMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
     const { amount, category, description, date } = req.body;
 
@@ -256,7 +256,7 @@ app.post("/api/expenses", authMiddleware, (req: AuthenticatedRequest, res) => {
       return jsonResponse(res, "error", {}, "Date cannot be in the future", 400);
     }
 
-    const newExpense = dbHelper.addExpense(req.userId!, {
+    const newExpense = await dbHelper.addExpense(req.userId!, {
       amount: parsedAmount,
       category,
       description: description.trim(),
@@ -271,7 +271,7 @@ app.post("/api/expenses", authMiddleware, (req: AuthenticatedRequest, res) => {
 });
 
 // GET /expenses - List expenses with filtering and pagination
-app.get("/api/expenses", authMiddleware, (req: AuthenticatedRequest, res) => {
+app.get("/api/expenses", authMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
     const userId = req.userId!;
     const period = req.query.period as string; // daily, monthly, yearly
@@ -279,7 +279,7 @@ app.get("/api/expenses", authMiddleware, (req: AuthenticatedRequest, res) => {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
 
-    let userExpenses = dbHelper.getExpenses(userId);
+    let userExpenses = await dbHelper.getExpenses(userId);
 
     // Sort by date descending (newest first), then by id descending
     userExpenses.sort((a, b) => {
@@ -324,7 +324,7 @@ app.get("/api/expenses", authMiddleware, (req: AuthenticatedRequest, res) => {
 });
 
 // PUT /expenses/{id} - Update expense
-app.put("/api/expenses/:id", authMiddleware, (req: AuthenticatedRequest, res) => {
+app.put("/api/expenses/:id", authMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
     const { id } = req.params;
     const userId = req.userId!;
@@ -371,7 +371,7 @@ app.put("/api/expenses/:id", authMiddleware, (req: AuthenticatedRequest, res) =>
       updatedFields.date = date;
     }
 
-    const updatedExpense = dbHelper.updateExpense(userId, id, updatedFields);
+    const updatedExpense = await dbHelper.updateExpense(userId, id, updatedFields);
     if (!updatedExpense) {
       return jsonResponse(res, "error", {}, "Expense not found or unauthorized", 404);
     }
@@ -384,12 +384,12 @@ app.put("/api/expenses/:id", authMiddleware, (req: AuthenticatedRequest, res) =>
 });
 
 // DELETE /expenses/{id} - Delete expense
-app.delete("/api/expenses/:id", authMiddleware, (req: AuthenticatedRequest, res) => {
+app.delete("/api/expenses/:id", authMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
     const { id } = req.params;
     const userId = req.userId!;
 
-    const isDeleted = dbHelper.deleteExpense(userId, id);
+    const isDeleted = await dbHelper.deleteExpense(userId, id);
     if (!isDeleted) {
       return jsonResponse(res, "error", {}, "Expense not found or unauthorized", 404);
     }
@@ -402,13 +402,13 @@ app.delete("/api/expenses/:id", authMiddleware, (req: AuthenticatedRequest, res)
 });
 
 // GET /expenses/export - Return CSV
-app.get("/api/expenses/export", authMiddleware, (req: AuthenticatedRequest, res) => {
+app.get("/api/expenses/export", authMiddleware, async (req: AuthenticatedRequest, res) => {
   try {
     const userId = req.userId!;
     const period = (req.query.period as string) || "all";
     const dateQuery = req.query.date as string;
 
-    let userExpenses = dbHelper.getExpenses(userId);
+    let userExpenses = await dbHelper.getExpenses(userId);
     userExpenses.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     let filtered = [...userExpenses];

@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-tracksmart-1651df52-c399-4895-8034-144a78f17d2b",
+      "rules": "firestore.rules"
+    }
+  ]
+}
